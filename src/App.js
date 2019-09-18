@@ -8,7 +8,7 @@ class App extends Component {
       <Layout>
         <Quiz />
       </Layout>
-    )
+    );
   }
 }
 
