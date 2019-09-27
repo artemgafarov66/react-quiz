@@ -114,7 +114,7 @@ class Quiz extends Component {
       <div className={classes.Quiz}>
         <div className={classes.QuizWrapper}>
           <h1>Ответьте на все вопросы</h1>
-          { this.state.isFinished &&
+          {this.state.isFinished &&
 
             <FinishedQuiz
               results={this.state.results}
@@ -122,7 +122,7 @@ class Quiz extends Component {
               onRetry={this.retryHandler}
             />
           }
-          { !this.state.isFinished &&
+          {!this.state.isFinished &&
 
             <ActiveQuiz
               answers={this.state.quiz[this.state.activeQuestion].answers}

@@ -18,20 +18,21 @@ const links = [
     to: '/quiz-creator',
     label: 'Создать тест',
     exact: true,
-  }
+  },
 ];
 
 class Drawer extends Component {
-  renderLinks = () => links.map((link, index) => {
-    return <li key={index}>
+  renderLinks = () => links.map((link, index) => (
+    <li key={index}>
       <NavLink
         to={link.to}
         exact={link.eact}
         activeClassName={classes.active}
         onClick={this.props.onClose}>
         {link.label}
-      </NavLink></li>
-  });
+      </NavLink>
+    </li>)
+  );
 
   render() {
     const cls = [classes.Drawer, !this.props.isOpen ? classes.close : ''];
@@ -44,9 +45,9 @@ class Drawer extends Component {
         </nav>
         {this.props.isOpen && <Backdrop onClick={this.props.onClose} />}
       </>
-    )
+    );
   }
-};
+}
 
 export default Drawer;
 
