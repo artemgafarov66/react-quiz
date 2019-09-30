@@ -1,0 +1,27 @@
+.Input {
+  margin-bottom: 15px;
+  label {
+    display: block;
+    margin-bottom: 3px;
+    padding: 0;
+    font-weight: bold;
+  }
+  input {
+    margin: 0 0 15px;
+    padding: 7px;
+    display: block;
+    width: 100%;
+    outline: none;
+    border: 1px solid #bebebe;
+    box-sizing: border-box;
+    transition: all .3s ease-in-out;
+  }
+  span {
+    color: #f01030;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  &.invald label {
+    color: #f01030;
+  }
+}
