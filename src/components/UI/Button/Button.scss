@@ -19,13 +19,13 @@
     color: #000;
     cursor: not-allowed;
   }
-  &.success {
+  &.success:not(:disabled) {
     background-color: #a1f045;
   }
-  &.error {
+  &.error:not(:disabled) {
     background-color: #f0576c;
   }
-  &.primary {
+  &.primary:not(:disabled) {
     background-color: #2884f6;
     color: #fff;
   }
