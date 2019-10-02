@@ -3,8 +3,7 @@ import classes from './Button.scss';
 
 const Button = props => {
   const cls = [classes.Button, classes[props.type]];
-  console.log(props.disabled);
-  
+
   return (
     <button
       className={cls.join(' ')}

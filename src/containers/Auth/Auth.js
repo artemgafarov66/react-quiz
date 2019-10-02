@@ -17,7 +17,7 @@ class Auth extends Component {
         validation: {
           required: true,
           email: true,
-        }
+        },
       },
       password: {
         value: '',
@@ -29,7 +29,7 @@ class Auth extends Component {
         validation: {
           required: true,
           minLength: 6,
-        }
+        },
       },
     },
   }
@@ -64,11 +64,11 @@ class Auth extends Component {
     return isValid;
   }
 
-  onChangeHandler = (event, controlName) => {
+  onChangeHandler = (value, controlName) => {
     const formControls = { ...this.state.formControls },
       control = { ...formControls[controlName] };
-    
-    control.value = event.target.value;
+
+    control.value = value;
     control.touched = true;
     control.valid = this.validateControl(control.value, control.validation);
 
@@ -78,14 +78,14 @@ class Auth extends Component {
 
     Object.keys(formControls).forEach(name => isFormValid = formControls[name].valid && isFormValid);
 
-    this.setState({formControls, isFormValid})
+    this.setState({ formControls, isFormValid });
   }
 
   renderInputs() {
     return Object.keys(this.state.formControls).map((controlName, index) => {
       const control = this.state.formControls[controlName];
       return (
-        <Input 
+        <Input
           key={controlName + index}
           type={control.type}
           value={control.value}
@@ -94,8 +94,7 @@ class Auth extends Component {
           label={control.label}
           shouldValidate={!!control.validation}
           errorMessage={control.errorMessage}
-          onChange={event => this.onChangeHandler(event, controlName)}
-        />
+          onChange={event => this.onChangeHandler(event.target.value, controlName)}/>
       );
     });
   }
