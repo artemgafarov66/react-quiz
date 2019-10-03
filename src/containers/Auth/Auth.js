@@ -4,6 +4,8 @@ import Button from '../../components/UI/Button/Button';
 import Input from '../../components/UI/Input/Input';
 import { validateForm } from '../../form/formFramework';
 import is from 'is_js';
+import axios from 'axios';
+
 class Auth extends Component {
   state = {
     isFormValid: false,
@@ -35,15 +37,39 @@ class Auth extends Component {
     },
   }
 
-  loginHandler = () => {
+  loginHandler = async () => {
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true,
+    };
 
+    try {
+      const response = axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBbquppcw9PLxD5r9zIZcxxOqztXcoC4PQ', authData);
+      console.log(response.data);
+      
+    } catch(e) {
+      console.log(e);
+    }
   }
 
-  registerHandler = () => {
+  registerHandler = async () => {
+    const authData = {
+      email: this.state.formControls.email.value,
+      password: this.state.formControls.password.value,
+      returnSecureToken: true,
+    };
 
+    try {
+      const response = axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyBbquppcw9PLxD5r9zIZcxxOqztXcoC4PQ', authData);
+      console.log(response.data);
+      
+    } catch(e) {
+      console.log(e);
+    }
   }
 
-  submitHandler = event => event.PreventDefault();
+  submitHandler = event => event.preventDefault();
 
   validateControl(value, validation) {
     if (!validation) return true;
