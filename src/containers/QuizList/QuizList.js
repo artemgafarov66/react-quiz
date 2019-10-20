@@ -22,7 +22,7 @@ class QuizList extends Component {
       <div className={classes.QuizList}>
         <div>
           <h1>Список тестов</h1>
-          {this.props.loading && this.props.quizes.length && <Loader />}
+          {this.props.loading && !this.props.quizes.length && <Loader />}
           {!this.props.loading &&
             <ul>
               {this.renderQuizes()}
